@@ -33,6 +33,12 @@ FROM alpine:3.9 AS runtime-image
 
 # Install python
 RUN apk add --update python3 curl libffi postgresql-libs
+
+#Fix
+#RUN pip3 uninstall werkzeug
+RUN pip3 install werkzeug==0.16.1
+
+
 # Copy uWSGI configuration
 RUN mkdir -p /opt/uwsgi
 ADD docker/app/uwsgi.ini /opt/uwsgi/
