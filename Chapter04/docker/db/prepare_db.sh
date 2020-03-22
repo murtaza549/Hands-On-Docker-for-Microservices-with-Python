@@ -1,6 +1,7 @@
 #!/bin/sh
 set -e
 
+chmod +x /opt/code/db/start_postgres.sh
 /opt/code/db/start_postgres.sh
 
 echo 'Creating Schema'
