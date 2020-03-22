@@ -26,9 +26,7 @@ RUN apk add bash curl su-exec python3
 RUN apk add postgresql postgresql-contrib postgresql-dev
 RUN apk add python3-dev build-base linux-headers gcc libffi-dev
 
-#Fix
-#RUN pip3 uninstall werkzeug
-RUN pip3 install werkzeug==0.16.1
+
 
 
 
@@ -45,6 +43,10 @@ RUN  /opt/code/db/postgres-setup.sh
 ADD ./ThoughtsBackend/requirements.txt /opt/code
 
 RUN pip3 install -r requirements.txt
+
+#Fix
+#RUN pip3 uninstall werkzeug
+RUN pip3 install werkzeug==0.16.1
 
 ## Need to import all the code, due dependencies to initialise the DB
 ADD ./ThoughtsBackend/ /opt/code/
