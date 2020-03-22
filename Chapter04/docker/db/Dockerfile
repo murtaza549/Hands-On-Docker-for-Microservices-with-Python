@@ -44,6 +44,7 @@ RUN pip3 install -r requirements.txt
 ADD ./ThoughtsBackend/ /opt/code/
 # Add all DB commanda
 ADD ./docker/db/* /opt/code/db/
+RUN chmod +x /opt/code/db/prepare_db.sh
 
 ## get the db ready
 RUN /opt/code/db/prepare_db.sh
